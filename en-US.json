@@ -1,0 +1,263 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "incident tool",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "incident_indent",
+          "slots": [
+            {
+              "name": "Emp_id",
+              "type": "AMAZON.FOUR_DIGIT_NUMBER",
+              "samples": [
+                "Employee Id is {Emp_id}"
+              ]
+            },
+            {
+              "name": "Service_area",
+              "type": "Service_area_id",
+              "samples": [
+                "{Service_area}",
+                "Service area {Service_area}"
+              ]
+            },
+            {
+              "name": "issue_freetext",
+              "type": "issue_freetext",
+              "samples": [
+                "{issue_freetext}"
+              ]
+            }
+          ],
+          "samples": [
+            "Employee Number {Emp_id} service area number {Service_area} {issue_freetext}",
+            "{Emp_id} {Service_area} {issue_freetext}",
+            "Employee I.D is {Emp_id} Service Area I.D is {Service_area} Issue faced {issue_freetext}"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Cambridge"
+              }
+            },
+            {
+              "name": {
+                "value": "Neville"
+              }
+            }
+          ],
+          "name": "Building_name"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Eleventh"
+              }
+            },
+            {
+              "name": {
+                "value": "Tenth"
+              }
+            },
+            {
+              "name": {
+                "value": "Nineth"
+              }
+            },
+            {
+              "name": {
+                "value": "First"
+              }
+            },
+            {
+              "name": {
+                "value": "Ground"
+              }
+            }
+          ],
+          "name": "Floor_no"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Stationery"
+              }
+            },
+            {
+              "name": {
+                "value": "cafeteria"
+              }
+            },
+            {
+              "name": {
+                "value": "Pantry"
+              }
+            },
+            {
+              "name": {
+                "value": "Printer area"
+              }
+            }
+          ],
+          "name": "issue_location"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "C02WW3P"
+              }
+            },
+            {
+              "name": {
+                "value": "N01EW1W"
+              }
+            }
+          ],
+          "name": "Service_area_id"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Refill Water"
+              }
+            },
+            {
+              "name": {
+                "value": "Printer not working"
+              }
+            },
+            {
+              "name": {
+                "value": "Water leakage"
+              }
+            }
+          ],
+          "name": "issue_freetext"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "incident_indent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "Emp_id",
+              "type": "AMAZON.FOUR_DIGIT_NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": true,
+              "prompts": {
+                "confirmation": "Confirm.Slot.583876714262.346211985866",
+                "elicitation": "Elicit.Slot.583876714262.346211985866"
+              }
+            },
+            {
+              "name": "Service_area",
+              "type": "Service_area_id",
+              "elicitationRequired": true,
+              "confirmationRequired": true,
+              "prompts": {
+                "confirmation": "Confirm.Slot.1528598137535.438651746334",
+                "elicitation": "Elicit.Slot.1528598137535.438651746334"
+              }
+            },
+            {
+              "name": "issue_freetext",
+              "type": "issue_freetext",
+              "elicitationRequired": true,
+              "confirmationRequired": true,
+              "prompts": {
+                "confirmation": "Confirm.Slot.1528598137535.661439848561",
+                "elicitation": "Elicit.Slot.1528598137535.661439848561"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.583876714262.346211985866",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please say your Employee I.D"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Slot.583876714262.346211985866",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Is this Employee I.D {Emp_id}"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1528598137535.438651746334",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please provide the service area I.D. It will be mentioned above the Alexa device. Example N zero two E W one P"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Slot.1528598137535.438651746334",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please confirm whether the service area I.D is {Service_area}"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1528598137535.661439848561",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Please brief on the issue you are facing"
+          }
+        ]
+      },
+      {
+        "id": "Confirm.Slot.1528598137535.661439848561",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Kindly confirm whether the issue to be reported is {issue_freetext}"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "5"
+}
